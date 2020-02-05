@@ -22,12 +22,7 @@ def decode(digits, base):
     return: int -- integer representation of number (in base 10)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    # TODO: Decode digits from binary (base 2)
-    # ...
-    # TODO: Decode digits from hexadecimal (base 16)
-    # ...
-    # TODO: Decode digits from any base (2 up to 36)
-    # ...
+
     decimal = 0
     index = 0
 
@@ -35,7 +30,6 @@ def decode(digits, base):
         decimal += NUM.find(digit) * pow(base, index)
         index += 1
     return decimal
-
 
 def encode(number, base):
     """Encode given number in base 10 to digits in given base.
@@ -46,12 +40,13 @@ def encode(number, base):
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
-    # TODO: Encode number in binary (base 2)
-    # ...
-    # TODO: Encode number in hexadecimal (base 16)
-    # ...
-    # TODO: Encode number in any base (2 up to 36)
-    # ...
+
+    base_digits = (DIGITS + LOWER)[:base]
+
+    if number < base:
+        return base_digits[number]
+    else:
+        return encode(number // base, base) + base_digits[number % base]
 
 
 def convert(digits, base1, base2):
