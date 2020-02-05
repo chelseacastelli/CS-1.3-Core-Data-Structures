@@ -58,14 +58,8 @@ def convert(digits, base1, base2):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
-    # TODO: Convert digits from base 2 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 2 to base 10 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 10 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from any base to any base (2 up to 36)
-    # ...
+
+    return encode(decode(digits, base1), base2)
 
 
 def main():
@@ -85,7 +79,4 @@ def main():
 
 
 if __name__ == '__main__':
-    # main()
-    binary_num = decimal_to_binary(230)
-    print(binary_num)
-    print(binary_to_decimal(binary_num))
+    main()
