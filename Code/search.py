@@ -27,35 +27,51 @@ def binary_search(array, item):
     """return the index of item in sorted array or None if item is not found"""
     # implement binary_search_iterative and binary_search_recursive below, then
     # change this to call your implementation to verify it passes all tests
-    return binary_search_iterative(array, item)
-    # return binary_search_recursive(array, item)
+    # return binary_search_iterative(array, item)
+    return binary_search_recursive(array, item)
 
 
 def binary_search_iterative(array, item):
-    # TODO: implement binary search iteratively here
-    start_index = 0
-    end_index = len(array) - 1
+    # Complexity: log2n
+    array.sort()
 
-    while start_index <= end_index:
-        midpoint = start_index + (end_index - start_index) // 2
+    left = 0
+    right = len(array) - 1
+
+    while left <= right:
+        midpoint = left + (right - left) // 2
         midpoint_value = array[midpoint]
 
         if midpoint_value == item:
             return midpoint
         elif item < midpoint_value:
-            end_index = midpoint - 1
+            right = midpoint - 1
         else:
-            start_index = midpoint + 1
+            left = midpoint + 1
 
     return None
 
 
 def binary_search_recursive(array, item, left=None, right=None):
     # TODO: implement binary search recursively here
-    pass
-    # once implemented, change binary_search to call binary_search_recursive
-    # to verify that your recursive implementation passes all tests
+    array.sort()
+
+    if left is None and right is None:
+        left = 0
+        right = len(array) - 1
+
+    if left > right:
+        return None
+    else:
+        midpoint = (left + right) // 2
+        if item == array[midpoint]:
+            return midpoint
+        elif item < array[midpoint]:
+            return binary_search_recursive(array, item, left, midpoint-1)
+        else:
+            return binary_search_recursive(array, item, midpoint+1, right)
+
 
 if __name__ == '__main__':
-    item = binary_search_iterative([1, 2, 3, 4, 5, 6, 7, 8, 9], 12)
+    item = binary_search([1, 2, 3, 4, 8, 9, 5, 6, 7], 3)
     print(item)
