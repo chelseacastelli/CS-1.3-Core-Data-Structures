@@ -9,6 +9,10 @@ def linear_search(array, item):
 
 
 def linear_search_iterative(array, item):
+    '''
+    Best time: 0(1) - item is found at first index
+    Worst time: 0(n) - item is found at last index
+    '''
     array.sort()
 
     for index, value in enumerate(array):
@@ -18,6 +22,10 @@ def linear_search_iterative(array, item):
 
 
 def linear_search_recursive(array, item, index=0):
+    '''
+    Best time: 0(1) - item is found at first index
+    Worst time: 0(n) - item is found at last index
+    '''
     array.sort()
 
     if array[index] == item:
@@ -35,9 +43,11 @@ def binary_search(array, item):
     return binary_search_iterative(array, item)
     # return binary_search_recursive(array, item)
 
-
 def binary_search_iterative(array, item):
-    # Complexity: log2n
+    '''
+    Best time: 0(1) - item is found at middle (midpoint) index
+    Worst time: 0(log2n) - item is found at last (right) index or item is not found (None)
+    '''
     array.sort()
 
     left = 0
@@ -57,6 +67,10 @@ def binary_search_iterative(array, item):
     return None
 
 def binary_search_recursive(array, item, left=None, right=None):
+    '''
+    Best time: 0(1) - item is found at middle (midpoint) index
+    Worst time: 0(log2n) - item is found at last (right) index or item is not found (None)
+    '''
     array.sort()
 
     if left is None and right is None:
