@@ -44,7 +44,7 @@ def binary_search(array, item):
 def binary_search_iterative(array, item):
     '''
     Best time: 0(1) - item is found at middle (midpoint) index
-    Worst time: 0(log2n) - item is found at last (right) index or item is not found (None)
+    Worst time: 0(log2n) - item is found at last (right or left) index or item is not found (None)
     '''
 
     left = 0
@@ -66,7 +66,7 @@ def binary_search_iterative(array, item):
 def binary_search_recursive(array, item, left=None, right=None):
     '''
     Best time: 0(1) - item is found at middle (midpoint) index
-    Worst time: 0(log2n) - item is found at last (right) index or item is not found (None)
+    Worst time: 0(log2n) - item is found at last (right or left) index or item is not found (None)
     '''
 
     if left is None and right is None:
