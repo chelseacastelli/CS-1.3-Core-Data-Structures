@@ -38,8 +38,8 @@ class LinkedStack(object):
         or None if this stack is empty."""
         if self.list.head is not None:
             return self.list.head.data
-        else:
-            return None
+
+        return None
 
     def pop(self):
         """Remove and return the item on the top of this stack,
@@ -86,17 +86,17 @@ class ArrayStack(object):
         or None if this stack is empty."""
         if len(self.list) == 0:
             return None
-        else:
-            return self.list[len(self.list) - 1]
+
+        return self.list[len(self.list) - 1]
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
         Running time: O(???) – Why? [TODO]"""
         if self.is_empty():
-            raise ValueError('No items in the stack')
-        else:
-            return self.list.pop()
+            raise ValueError('Stack is empty')
+
+        return self.list.pop()
 
 
 # Implement LinkedStack and ArrayStack above, then change the assignment below
