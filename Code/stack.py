@@ -20,12 +20,10 @@ class LinkedStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        # TODO: Check if empty
         return self.list.head is None
 
     def length(self):
         """Return the number of items in this stack."""
-        # TODO: Count number of items
         return self.list.size
 
     def push(self, item):
