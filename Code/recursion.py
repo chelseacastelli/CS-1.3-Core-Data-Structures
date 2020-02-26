@@ -13,7 +13,9 @@ def factorial(n):
 
 
 def factorial_iterative(n):
-    # TODO: implement the factorial function iteratively here
+    """
+    Time Complexity: 0(n) because we have to execute while loop n amount of times
+    """
     factorial = 1
 
     while n > 0:
@@ -23,6 +25,9 @@ def factorial_iterative(n):
 
 
 def factorial_recursive(n):
+    """
+    Time Complexity: 0(n) because we make one direct call to the function and then backtrack which would be 0(2n) -- drop constant
+    """
     # check if n is one of the base cases
     if n == 0 or n == 1:
         return 1

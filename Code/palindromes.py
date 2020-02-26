@@ -21,7 +21,9 @@ def is_palindrome(text):
 
 
 def is_palindrome_iterative(text):
-    # TODO: implement the is_palindrome function iteratively here
+    """
+    Time Complexity: 0(n) depending on string length, iterate over it just one time from each end
+    """
     text = text.lower()
     start_index = 0
     end_index = len(text) - 1
@@ -41,7 +43,9 @@ def is_palindrome_iterative(text):
 
 
 def is_palindrome_recursive(text, left=None, right=None):
-    # TODO: implement the is_palindrome function recursively here
+    """
+    Time Complexity: 0(n)
+    """
     if text == "":
         return True
     text = text.lower()

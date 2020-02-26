@@ -28,7 +28,7 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: 0(1) because we're just adding a new head node"""
         self.list.prepend(item)
 
     def peek(self):
@@ -42,7 +42,7 @@ class LinkedStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: 0(1) because we're just deleting the head node"""
         if self.is_empty():
             raise ValueError('Stack is empty')
         item = self.list.head.data
@@ -76,7 +76,7 @@ class ArrayStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: *avg 0(1) because we're just appending to the end of the array"""
         self.list.append(item)
 
     def peek(self):
@@ -90,7 +90,7 @@ class ArrayStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: 0(1) because we're just deleting the last item (n-1) in the array"""
         if self.is_empty():
             raise ValueError('Stack is empty')
 

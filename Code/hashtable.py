@@ -25,13 +25,12 @@ class HashTable(object):
 
     def load_factor(self):
         """Return the load factor, the ratio of number of entries to buckets.
-        Best and worst case running time: O(1) [TODO]"""
-        # TODO: Calculate load factor
+        Best and worst case running time: O(1)"""
         return self.size/len(self.buckets)
 
     def keys(self):
         """Return a list of all keys in this hash table.
-        Best and worst case running time: O(n); the function loops over each item once [TODO]"""
+        Best and worst case running time: O(n); the function loops over each item once"""
         # Collect all keys in each of the buckets
         all_keys = []
         for bucket in self.buckets:
@@ -41,7 +40,7 @@ class HashTable(object):
 
     def values(self):
         """Return a list of all values in this hash table.
-        Best and worst case running time: O(n); the function loops over each item once [TODO]"""
+        Best and worst case running time: O(n); the function loops over each item once"""
         # Collect all values in each of the buckets
         all_values = []
         for bucket in self.buckets:
@@ -51,7 +50,7 @@ class HashTable(object):
 
     def items(self):
         """Return a list of all entries (key-value pairs) in this hash table.
-        Best and worst case running time: O(n); The function is looping over every item [TODO]"""
+        Best and worst case running time: O(n); The function is looping over every item"""
         # Collect all pairs of key-value entries in each of the buckets
         all_items = []
         for bucket in self.buckets:
@@ -60,7 +59,7 @@ class HashTable(object):
 
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
-        Best and worst case running time: O(n); The function runs through each entry [TODO]"""
+        Best and worst case running time: O(n); The function runs through each entry"""
         # # Count number of key-value entries in each of the buckets
         # item_count = 0
         # for bucket in self.buckets:
@@ -71,8 +70,8 @@ class HashTable(object):
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
-        Best case running time: O(1); The item with the key is the first one reached [TODO]
-        Worst case running time: ; [TODO]"""
+        Best case running time: O(1); The item with the key is the first one reached
+        Worst case running time: 0(n/b); THe item isn't in the list """
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -83,7 +82,7 @@ class HashTable(object):
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
         Best case running time: O(1); The item with the key and value is the first one reached [TODO]
-        Worst case running time: ; [TODO]"""
+        Worst case running time: O(n/b); The item isn't in the list"""
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -100,7 +99,7 @@ class HashTable(object):
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         Best case running time: O(1); The item with the key and value is the first one reached [TODO]
-        Worst case running time: ; [TODO]"""
+        Worst case running time: O(n/b); The item isn't in the list"""
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -122,7 +121,7 @@ class HashTable(object):
     def delete(self, key):
         """Delete the given key and its associated value, or raise KeyError.
         Best case running time: O(1); The item with the key and associated value is the first one reached [TODO]
-        Worst case running time: ; [TODO]"""
+        Worst case running time: O(n/b); The item isn't in the list"""
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -139,8 +138,8 @@ class HashTable(object):
         """Resize this hash table's buckets and rehash all key-value entries.
         Should be called automatically when load factor exceeds a threshold
         such as 0.75 after an insertion (when set is called with a new key).
-        Best and worst case running time: O(n); [TODO]
-        Best and worst case space usage:  [TODO]"""
+        Best and worst case running time: O(n); The items need to be copied to a new table
+        Best and worst case space usage:  0(n+2b); Buckets need to be created and deleted for the nodes(items)"""
         # If unspecified, choose new size dynamically based on current size
         if new_size is None:
             new_size = len(self.buckets) * 2  # Double size
