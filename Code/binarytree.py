@@ -234,6 +234,7 @@ class BinarySearchTree(object):
         if node.right is not None:
             self._traverse_in_order_recursive(node.right, visit)
 
+    # STRETCH
     # def _traverse_in_order_iterative(self, node, visit):
     #     """Traverse this binary tree with iterative in-order traversal (DFS).
     #     Start at the given node and visit each node with the given function.
@@ -263,6 +264,7 @@ class BinarySearchTree(object):
         if node.right is not None:
             self._traverse_pre_order_recursive(node.right, visit)
 
+    # STRETCH
     # def _traverse_pre_order_iterative(self, node, visit):
     #     """Traverse this binary tree with iterative pre-order traversal (DFS).
     #     Start at the given node and visit each node with the given function.
@@ -292,6 +294,7 @@ class BinarySearchTree(object):
 
         visit(node.data)
 
+    # STRETCH
     # def _traverse_post_order_iterative(self, node, visit):
     #     """Traverse this binary tree with iterative post-order traversal (DFS).
     #     Start at the given node and visit each node with the given function.
