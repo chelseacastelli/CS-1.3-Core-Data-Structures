@@ -33,7 +33,8 @@ class LinkedStack(object):
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
-        or None if this stack is empty."""
+        or None if this stack is empty.
+        Running time: 0(1); just returning head data"""
         if self.list.head is not None:
             return self.list.head.data
 
@@ -81,7 +82,8 @@ class ArrayStack(object):
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
-        or None if this stack is empty."""
+        or None if this stack is empty.
+        Running time: 0(1); we're jumping to last index (n-1) and viewing item"""
         if len(self.list) == 0:
             return None
 

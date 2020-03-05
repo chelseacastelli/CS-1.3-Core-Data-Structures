@@ -56,7 +56,8 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        Best and worst case running time: with this implementation, 0(n) because we're traversing list"""
+        Best case: 0(1) <= 1 element to look thru
+        Worst case: 0(n) more than 1 element"""
         # Node counter initialized to zero
         node_count = 0
         # Start at the head node
@@ -73,8 +74,8 @@ class LinkedList(object):
     def get_at_index(self, index):
         """Return the item at the given index in this linked list, or
         raise ValueError if the given index is out of range of the list size.
-        Best case running time: 0(i) must traverse to given index
-        Worst case running time: 0(n) must traverse list to the end"""
+        Best case running time: 0(1) <= 1 element to look thru
+        Worst case running time: 0(n) more than 1 element"""
         # Check if the given index is out of range and if so raise an error
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
@@ -89,8 +90,8 @@ class LinkedList(object):
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
         raise ValueError if the given index is out of range of the list size.
-        Best case running time: 0(i) must traverse to given index
-        Worst case running time: 0(n) must traverse list to the end"""
+        Best case running time: 0(1) <= 1 element to look thru
+        Worst case running time: 0(n) more than 1 element"""
         # Check if the given index is out of range and if so raise an error
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
@@ -112,7 +113,8 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        Best and worst case running time: 0(1) because we have access to tail node"""
+        Best case: 0(1); <= 1 elements to look thru
+        Worst case: 0(n); more than 1 element"""
         # Create a new node to hold the given item
         new_node = Node(item)
         # Check if this linked list is empty

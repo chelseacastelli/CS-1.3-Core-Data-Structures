@@ -33,7 +33,8 @@ class LinkedQueue(object):
 
     def front(self):
         """Return the item at the front of this queue without removing it,
-        or None if this queue is empty."""
+        or None if this queue is empty.
+        Running time: 0(1); just returning head data"""
         if self.list.head is not None:
             return self.list.head.data
 
@@ -81,7 +82,8 @@ class ArrayQueue(object):
 
     def front(self):
         """Return the item at the front of this queue without removing it,
-        or None if this queue is empty."""
+        or None if this queue is empty.
+        Running time: 0(1); just returning item at index 0"""
         if len(self.list) == 0:
             return None
         return self.list[0]
