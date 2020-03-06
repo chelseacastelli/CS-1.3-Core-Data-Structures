@@ -6,7 +6,7 @@ from subprocess import call
 
 class DictUnjumble(object):
     def __init__(self):
-        self.dictionary = {}
+        self.dictionary = dict()
 
     def unjumble_key(self, word):
         """Return a string that is the unjumble key of its input"""
@@ -21,7 +21,10 @@ class DictUnjumble(object):
 
     def unjumble(self, word):
         """Returns a list of all words in the dictionary to which the input string unjumbles"""
-        return self.dictionary["".join(sorted(word)).lower()]
+        w = "".join(sorted(word)).lower()
+        if w in self.dictionary:
+            return self.dictionary[w]
+        raise KeyError(f'{word} not in dictionary')
 
 
 def clear():
