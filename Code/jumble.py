@@ -2,6 +2,7 @@
 from load_dictionary import read_in_data
 import os
 from subprocess import call
+from pprint import pprint
 
 
 class DictUnjumble(object):
@@ -15,7 +16,7 @@ class DictUnjumble(object):
     def make_unjumble_dict(self, words):
         """Create a jumbled key for every word in 'dict' file & append its anagrams as values []"""
         for word in words:
-            word = word.lower()
+            word = word.strip().lower()
             sort_wrd = self.unjumble_key(word)
             self.dictionary.setdefault(sort_wrd, []).append(word)
 
@@ -26,6 +27,16 @@ class DictUnjumble(object):
             return self.dictionary[w]
         raise KeyError(f'{word} not in dictionary')
 
+    def unjumble_final(self, circles, words):
+        word = ""
+        for i, c in enumerate(circles):
+            for j, l in enumerate(c):
+                if l == 'O':
+                    word += words[i][j]
+
+        return word
+
+
 
 def clear():
     """A function that clears the terminal for better readability"""
@@ -35,9 +46,12 @@ def clear():
 if __name__ == "__main__":
     jumble = DictUnjumble()
     inputted_words = []
+    circles = []
 
     dict_words = read_in_data('/usr/share/dict/words')
     jumble.make_unjumble_dict(dict_words)
+
+    # pprint(jumble.dictionary)
 
     print("-----WELCOME TO JUMBLE!-----\n")
     num = input("How many words are you going to enter? ")
@@ -45,12 +59,17 @@ if __name__ == "__main__":
 
     for _ in range(int(num)):
         inputted_words.append(input("Please input a jumble word: "))
+        circles.append(input("Give circles for this word: "))
 
     clear()
 
     print("\n-----SOLVED!-----\n")
 
     for word in inputted_words:
-        print(f'{word} --> {jumble.unjumble(word)[0]}')
+        print(f'{word} -- possibilities --> {jumble.unjumble(word)}')
+
+    final_word = jumble.unjumble_final(circles, inputted_words)
+
+    print(f'\nThe final word possibilities --> {jumble.unjumble(final_word)}')
 
     print('\n')
