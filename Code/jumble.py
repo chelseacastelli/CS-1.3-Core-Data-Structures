@@ -28,6 +28,7 @@ class DictUnjumble(object):
         raise KeyError(f'{word} not in dictionary')
 
     def unjumble_final(self, circles, words):
+        """Solves ONE word final"""
         word = ""
         for i, c in enumerate(circles):
             for j, l in enumerate(c):
